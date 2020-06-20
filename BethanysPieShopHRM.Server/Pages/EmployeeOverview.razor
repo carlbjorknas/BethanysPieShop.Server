@@ -26,6 +26,9 @@ else
                 <td>@employee.EmployeeId</td>
                 <td>@employee.FirstName</td>
                 <td>@employee.LastName</td>
+                <td>
+                    <a href="@($"employeedetail/{employee.EmployeeId}")" class="btn btn-primary">Detail</a>
+                </td>
             </tr>
         }
     </tbody>
