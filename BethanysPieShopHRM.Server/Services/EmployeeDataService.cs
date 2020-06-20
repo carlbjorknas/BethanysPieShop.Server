@@ -33,9 +33,10 @@ namespace BethanysPieShopHRM.Server.Services
                 (await _httpClient.GetStreamAsync("api/employee"), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
 
-        public Task<Employee> GetEmployeeDetails(int employeeId)
+        public async Task<Employee> GetEmployeeDetails(int employeeId)
         {
-            throw new NotImplementedException();
+            return await JsonSerializer.DeserializeAsync<Employee>
+                (await _httpClient.GetStreamAsync($"api/employee/{employeeId}"), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
 
         public Task UpdateEmployee(Employee employee)
