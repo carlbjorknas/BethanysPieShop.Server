@@ -4,11 +4,12 @@
 
 @inherits EmployeeEditBase
 
+@if (!Saved)
+{
 <section class="employee-edit">
     <h1 class="page-title">Details for @Employee.FirstName @Employee.LastName</h1>
 
-
-    <EditForm Model="@Employee">
+    <EditForm Model="@Employee" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
         <div class="form-group row">
             <label for="lastName" class="col-sm-3">Last name: </label>
             <InputText id="lastName" @bind-Value="@Employee.LastName" class="form-control col-sm-8" placeholder="Enter last name"></InputText>
@@ -118,7 +119,15 @@
             <label for="exitdate" class="col-sm-3">Left on: </label>
             <InputDate id="exitdate" class="form-control col-sm-8" @bind-Value="@Employee.ExitDate" placeholder="Enter exit date"></InputDate>
         </div>
+
+        <button type="submit" class="btn btn-primary edit-btn">Save employee</button>
     </EditForm>
 </section>
+}
+else
+{
+    <div class="alert @StatusClass">@Message</div>
+}
+
 
 
