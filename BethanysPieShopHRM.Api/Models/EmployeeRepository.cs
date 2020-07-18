@@ -52,6 +52,8 @@ namespace BethanysPieShopHRM.Api.Models
                 foundEmployee.Comment = employee.Comment;
                 foundEmployee.ExitDate = employee.ExitDate;
                 foundEmployee.JoinedDate = employee.JoinedDate;
+                foundEmployee.Latitude = employee.Latitude;
+                foundEmployee.Longitude = employee.Longitude;
 
                 _appDbContext.SaveChanges();
 
